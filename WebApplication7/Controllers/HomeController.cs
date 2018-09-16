@@ -21,7 +21,8 @@ namespace WebApplication7.Controllers
 
             return View();
         }
-
+        public IActionResult student()
+        { return View(); }
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
