@@ -54,6 +54,11 @@ namespace WebApplication7.Controllers
             Student S = mydb.Student.Where(a => a.Id == Id).SingleOrDefault<Student>(); 
             return View(S);
         }
-
+        public IActionResult DeleteStudent(Student S)
+        {
+            mydb.Student.Remove(S);
+            mydb.SaveChanges();
+            return RedirectToAction("AllStudents");
+        }
     }
 }
