@@ -35,7 +35,19 @@ namespace WebApplication7.Controllers
             S = mydb.Student.ToList<Student>();
             return View(S);
         }
-
+        [HttpGet]
+        public IActionResult EditStudent(int Id)
+        {
+            Student S = mydb.Student.Where(a => a.Id == Id).SingleOrDefault<Student>();
+            return View(S);
+        }
+        [HttpPost]
+        public IActionResult EditStudent(Student S)
+        {
+            mydb.Student.Update(S);
+            mydb.SaveChanges();
+            return RedirectToAction("AllStudents");
+        }
 
 
 
