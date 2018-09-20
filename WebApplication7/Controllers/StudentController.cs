@@ -49,7 +49,11 @@ namespace WebApplication7.Controllers
             return RedirectToAction("AllStudents");
         }
 
-
+        public IActionResult DetailsStudent(int Id)
+        {
+            Student S = mydb.Student.Where(a => a.Id == Id).SingleOrDefault<Student>(); 
+            return View(S);
+        }
 
     }
 }
