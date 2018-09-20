@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication7.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApplication7.Models;
 
 namespace WebApplication7
 {
@@ -37,6 +38,12 @@ namespace WebApplication7
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<TasksContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("abc")));
+
+
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
