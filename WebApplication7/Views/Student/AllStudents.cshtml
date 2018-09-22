@@ -5,10 +5,17 @@
 }
 
 <h2>AllStudents</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<form method="post">
+    <div>
+        <input type="text" id="SearchByName" name="SearchByName" placeholder="SearchByName" />
+    </div>
+    <div>
+        <input type="text" id="SearchByEmail" name="SearchByEmail" placeholder="SearchByEmail" />
+    </div>
+   <div>
+       <input type="submit" value="Search"/>
+   </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -55,7 +62,7 @@
                 <img src="@item.Image" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cv)
+               <a class="btn btn-danger" id="/Student/DownloadCv?path=@item.Id">DownloadCv</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
@@ -75,3 +82,4 @@
 }
     </tbody>
 </table>
+<a class="btn btn-success"asp-action="Student"><span class="glyphicon glyphicon-arrow-up"></span>CreateNewStudent</a>

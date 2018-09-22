@@ -23,4 +23,11 @@
     <PackageReference Include="MimeSharp" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\TeachersDocuments\" />
+    <Folder Include="wwwroot\Data\TeachersImages\" />
+    <Folder Include="wwwroot\Data\StudentsDocuments\" />
+    <Folder Include="wwwroot\Data\StudentsImages\" />
+  </ItemGroup>
+
 </Project>

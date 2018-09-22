@@ -6,9 +6,15 @@
 
 <h2>AllTeachers</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<form method="post" >
+    <div>
+        <input type="text" id="SearchByName" name="SearchByName" value="SearchByName">
+    </div>
+    <div>
+        <input type="text" id="SearchByEmail" name="SearchByEmail" value="SearchByEmail">
+    </div>
+    <div><input type="submit"  name="Search"></div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -52,10 +58,10 @@
                 @Html.DisplayFor(modelItem => item.Experiance)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+              <img src="@item.Image">
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cv)
+              <a class="btn btn-danger"href="/Teacher/DownloadCv?path=@item.Cv">DownloadCv</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
