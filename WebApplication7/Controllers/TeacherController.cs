@@ -35,22 +35,23 @@ namespace WebApplication7.Controllers
                 return View();
 
             }
+
+
             string path = _env.WebRootPath + "/Data/TeachersImages/";
-          string FileExt=  Path.GetExtension(Image.FileName);
-            string Name = DateTime.Now.ToString("yymmddhhmmss") + FileExt;
-            FileStream fs = new FileStream(path + FileExt, FileMode.Create);
+          var FileExt=  Path.GetExtension(Image.FileName);
+            var Name = DateTime.Now . ToString("yymmddhhmmss")+FileExt;
+            var fs = new FileStream(path + FileExt, FileMode.Create);
             Image.CopyTo(fs);
             fs.Close();
-            T.Image = "/Data/TeachersImages/" + Name;
+            T.Image = "/Data/TeachersImages/";
 
-            string CVPath = _env.WebRootPath+"/Data/TeachersDocuments/";
-            string Ext = Path.GetExtension(Cv.FileName);
-            string NameCV = DateTime.Now.ToString("yymmddhhmmss")+Ext;
-            FileStream cs = new FileStream(CVPath + Ext, FileMode.Create);
-            Cv.CopyTo(cs);
-            cs.Close();
-            T.Cv = "/Data/TeacherDocuments/" + NameCV;
-
+            string pa = _env.WebRootPath + "/Data/TeachersDocuments/";
+            string N = Path.GetExtension(Cv.FileName);
+            string Na = DateTime.Now.ToString("yymmddhhmmss") + FileExt;
+            FileStream f = new FileStream(pa+N,FileMode.Create);
+            Cv.CopyTo(f);
+            f.Close();
+            T.Cv = "/Data/TeachersDocuments/" + Na;
             mydb.Teacher.Add(T);
             mydb.SaveChanges();
 

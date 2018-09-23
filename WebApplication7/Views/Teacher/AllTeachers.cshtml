@@ -60,7 +60,7 @@
             <td>
               <img src="@item.Image">
             </td>
-            <td>
+            <td>@Html.DisplayFor(modelItem =>item.Cv)
               <a class="btn btn-danger"href="/Teacher/DownloadCv?path=@item.Cv">DownloadCv</a>
             </td>
             <td>
